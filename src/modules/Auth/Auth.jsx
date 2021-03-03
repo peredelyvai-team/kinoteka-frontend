@@ -8,11 +8,7 @@ export const Auth = () => {
       <form className={cn(styles.form, 'jumbotron', 'rounded')}>
         <h1 className={cn('h2', 'mb-3', 'text-center')}>Sign in</h1>
         <div className={cn(styles.conInput, 'rounded-sm')}>
-          <input
-            type='email'
-            className={styles.input}
-            placeholder={'Username'}
-          ></input>
+          <input type='email' className={styles.input} placeholder='Username' />
           <BiUserCircle className={styles.icons} />
           <div className={styles.bg}></div>
         </div>
@@ -20,8 +16,8 @@ export const Auth = () => {
           <input
             type='password'
             className={styles.input}
-            placeholder={'Password'}
-          ></input>
+            placeholder='Password'
+          />
           <BiKey className={styles.icons} />
           <div className={styles.bg}></div>
         </div>

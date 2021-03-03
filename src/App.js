@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import cn from 'classnames'
-import { Auth } from './Auth'
-import { SearchPanel } from './SearchPanel'
+import { Auth } from './modules/Auth'
+import { SearchPanel } from './components/SearchPanel'
 import './bootstrap.min.css'
 function App() {
   return (
