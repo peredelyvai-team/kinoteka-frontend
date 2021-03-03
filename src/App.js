@@ -1,25 +1,18 @@
-import logo from './logo.svg'
-import './App.css'
-
+import React from 'react'
+import './bootstrap.min.css';
+import { BrowserRouter, Route } from 'react-router-dom'
+import cn from 'classnames'
+import { Auth } from './Auth'
+import { SearchPanel } from './SearchPanel'
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
+    <div className={cn('min-vh-100', 'container')}>
+      <SearchPanel />
+      <BrowserRouter>
+        <Route path='/login' component={Auth} />
+      </BrowserRouter>
+    </div >
+  );
 }
 
-export default App
+export default App;
