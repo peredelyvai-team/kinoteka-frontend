@@ -1,0 +1,44 @@
+.searchPanel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.1rem solid var(--primary);
+  padding: 0.2rem;
+  background-color: var(--primary);
+}
+
+.searchInput {
+  outline: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  height: calc(1.5em + 0.75rem + 2px);
+  width: 0;
+  transition: all 0.5s ease;
+}
+
+.checkWrapper {
+  position: relative;
+  margin: 0;
+}
+
+.searchInput:focus {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  width: 40rem;
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+}
+
+.searchIcon {
+  width: 2rem;
+  height: 2rem;
+  background: var(--ligth);
+  cursor: pointer;
+  margin: 0;
+  transition: all 0.25s ease;
+}
+
+.searchIcon:hover {
+  transform: scale(1.1);
+}
