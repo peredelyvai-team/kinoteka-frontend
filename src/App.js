@@ -1,18 +1,16 @@
 import React from 'react'
-import './bootstrap.min.css';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import cn from 'classnames'
 import { Auth } from './Auth'
 import { SearchPanel } from './SearchPanel'
+import './bootstrap.min.css'
 function App() {
   return (
     <div className={cn('min-vh-100', 'container')}>
       <SearchPanel />
-      <BrowserRouter>
-        <Route path='/login' component={Auth} />
-      </BrowserRouter>
-    </div >
-  );
+      <Route path='/login' component={Auth} />
+    </div>
+  )
 }
 
-export default App;
+export default App
