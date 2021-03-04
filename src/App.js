@@ -4,10 +4,11 @@ import cn from 'classnames'
 import { Auth } from './modules/Auth'
 import { SearchPanel } from './components/SearchPanel'
 import './bootstrap.min.css'
+import { Preloader } from './components'
 function App() {
   return (
     <div className={cn('min-vh-100', 'container')}>
-      <SearchPanel />
+      <Preloader />
       <Route path='/login' component={Auth} />
     </div>
   )

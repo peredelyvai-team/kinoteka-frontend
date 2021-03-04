@@ -1,0 +1,11 @@
+.alertError {
+  display: inline-block;
+  max-width: 80%;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 25rem 2.5rem 22.5rem 2.5rem/2.5rem 22.5rem 2.5rem 25.5rem;
+  margin-bottom: 1rem;
+}
+.error {
+  font-size: 0.8rem;
+}
