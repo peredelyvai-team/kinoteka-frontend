@@ -8,7 +8,7 @@ import { Preloader } from './components'
 function App() {
   return (
     <div className={cn('min-vh-100', 'container')}>
-      <Preloader />
+      <Preloader isShow={true} />
       <Route path='/login' component={Auth} />
     </div>
   )

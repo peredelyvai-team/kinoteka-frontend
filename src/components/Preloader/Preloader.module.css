@@ -13,12 +13,10 @@
   animation: drawing;
   animation-duration: 3s;
   animation-iteration-count: infinite;
-  /* transform: translateX(-33%) translateY(23%) rotate(-45deg); */
-  /* transform: translateX(33%) translateY(-40%) rotate(-45deg); */
-  /* transform: translateX(0%) translateY(43%) rotate(-45deg); */
-  /* transform: translateX(58%) translateY(-18%) rotate(-45deg); */
-  /* transform: translateX(15%) translateY(73%) rotate(-45deg); */
-  /* transform: translateX(79%) translateY(13%) rotate(-45deg); */
+}
+
+.stoped {
+  animation-play-state: paused;
 }
 
 .preloaderLine {
