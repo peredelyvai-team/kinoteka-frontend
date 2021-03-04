@@ -63,7 +63,7 @@
   pointer-events: none;
   border-radius: inherit;
   border: 0.2rem solid transparent;
-  transition: all 0.25 sec ease;
+  transition: all 0.25s ease;
 }
 
 .form {
@@ -72,4 +72,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.error {
+  padding: 0;
+  border: 0.1rem solid var(--danger);
+}
+
+.alert {
+  color: var(--danger);
 }
