@@ -1,7 +1,8 @@
-import { SET_AUTH } from '../types'
+import { SET_AUTH, SET_AUTH_ERROR } from '../types'
 
 const initialState = {
   isAuth: false,
+  authError: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isAuth: action.payload,
+      }
+    }
+    case SET_AUTH_ERROR: {
+      return {
+        ...state,
+        authError: action.payload,
       }
     }
     default: {

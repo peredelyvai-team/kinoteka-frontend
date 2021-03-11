@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
+import axios from 'axios'
 
 let requestQueue = []
 let lastRequest = {}
@@ -25,7 +25,7 @@ const serviceDecorator = config => {
       resolve(response)
     } catch (error) {
       console.log(`Error in request: ${error}`)
-      reject(error)
+      resolve(error.response)
     }
   })
 }
