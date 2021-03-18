@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 4rem;
+  min-width: 10rem;
   min-height: 5rem;
   height: 12rem;
   width: 9rem;
@@ -14,6 +14,7 @@
   word-break: break-all;
   backface-visibility: hidden;
   position: relative;
+  margin: 10px;
 }
 
 .cardFront,

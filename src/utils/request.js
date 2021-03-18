@@ -38,7 +38,7 @@ service.interceptors.request.use(
       Accept: 'application/json',
     }
 
-    const token = localStorage.getItem('ACCESS_TOKEN')
+    const token = localStorage.getItem('access_token')
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`
     }

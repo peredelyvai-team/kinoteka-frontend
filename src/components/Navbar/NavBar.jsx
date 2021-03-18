@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { BiUserCircle, BiLogIn } from 'react-icons/bi'
 import cn from 'classnames'
-import logo from '../../assets/Logo.svg'
+import logo from '../../assets/Logo.png'
 import styles from './NavBar.module.css'
 
 export function NavBar() {
@@ -13,7 +13,6 @@ export function NavBar() {
         <NavLink
           to='/'
           className={styles.navLink}
-          activeClassName={styles.navLinkActive}
         >
           <img className={styles.navbarLogo} src={logo} alt='logo' />
         </NavLink>
