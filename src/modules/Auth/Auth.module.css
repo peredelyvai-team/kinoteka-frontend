@@ -11,8 +11,9 @@
 }
 
 .signIn {
+  padding-top: 1.2rem;
   display: flex;
-  min-height: 100vh;
+  position: relative;
   justify-content: center;
   align-items: center;
 }
@@ -67,7 +68,9 @@
 }
 
 .form {
+  min-width: 280px;
   width: 50%;
+  max-width: 700px;
   position: relative;
   display: flex;
   flex-direction: column;

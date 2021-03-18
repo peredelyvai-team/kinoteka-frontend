@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import cn from 'classnames'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect, NavLink } from 'react-router-dom'
 import { Auth } from './modules/Auth'
 import { useAction } from './hooks'
-import { Preloader } from './components'
 import { useSelector } from 'react-redux'
 import './bootstrap.min.css'
+import { NavBar } from './components'
 function App() {
   const { isAuth } = useSelector(state => state.app)
   const { setAuth } = useAction()
@@ -14,8 +14,8 @@ function App() {
   }, [])
 
   return (
-    <div className={cn('min-vh-100', 'container')}>
-      <Preloader isShow={false} />
+    <div className={cn('min-vh-100')}>
+      <NavBar />
       {isAuth && <Redirect to='/' from='/auth' />}
       <Route path='/auth' component={Auth} />
     </div>

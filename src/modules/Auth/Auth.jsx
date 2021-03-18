@@ -63,7 +63,7 @@ export const Auth = () => {
       {isLoading ? (
         <Preloader isShow={isLoading} />
       ) : (
-        <form className={cn(styles.form, 'jumbotron', 'rounded')}>
+        <form className={cn(styles.form, 'jumbotron')}>
           <h1 className={cn('h2', 'mb-3', 'text-center')}>Вход</h1>
           <FormError formError={authError} />
           <div className={cn(styles.conInput, 'rounded-sm')}>
