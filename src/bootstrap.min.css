@@ -81,16 +81,16 @@ body {
   font-size: 1rem;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0.4rem;
   height: 1rem;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background-color: var(--light);
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 2rem;
 }
