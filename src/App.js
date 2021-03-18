@@ -5,6 +5,7 @@ import { Auth } from './modules/Auth'
 import { useAction } from './hooks'
 import { useSelector } from 'react-redux'
 import './bootstrap.min.css'
+import { NavBar } from './components'
 function App() {
   const { isAuth } = useSelector(state => state.app)
   const { setAuth } = useAction()
@@ -13,8 +14,8 @@ function App() {
   }, [])
 
   return (
-    <div className={cn('min-vh-100', 'container')}>
-      <NavLink to='/auth'>Auth</NavLink>
+    <div className={cn('min-vh-100')}>
+      <NavBar />
       {isAuth && <Redirect to='/' from='/auth' />}
       <Route path='/auth' component={Auth} />
     </div>

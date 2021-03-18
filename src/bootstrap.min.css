@@ -43,6 +43,7 @@
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
+  font-size: calc(14px + (24 - 16) * ((100vw - 300px) / (2800 - 300)));
 }
 *,
 ::after,
@@ -51,7 +52,6 @@
 }
 html {
   font-family: sans-serif;
-  font-size: calc(14px + (24 - 16) * ((100vw - 300px) / (2800 - 300)));
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -78,7 +78,23 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  font-size: 1rem;
 }
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2rem;
+}
+
 [tabindex='-1']:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -4070,7 +4086,7 @@ input[type='submit'].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0rem;
 }
 .navbar .container,
 .navbar .container-fluid,
@@ -9534,11 +9550,7 @@ a.text-dark:hover {
     border-color: #333;
   }
 }
-.navbar {
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 25px 25px 55px 5px/5px 55px 25px 25px;
-}
+
 .navbar.bg-light {
   border-color: #333;
 }
