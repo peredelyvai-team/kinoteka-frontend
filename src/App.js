@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useSelector } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 import { useAction } from './hooks'
-import { Auth, Main } from './modules'
+import { Auth, Main, MovieItem } from './modules'
 import { NavBar } from './components'
 import './bootstrap.min.css'
 
@@ -22,6 +22,7 @@ function App() {
       </Route>
       {isAuth && <Redirect to='/' from='/auth' />}
       <Route path='/auth' component={Auth} />
+      <Route path={'/item/:id'} component={MovieItem} />
     </div>
   )
 }

@@ -8,12 +8,9 @@ import styles from './NavBar.module.css'
 export function NavBar() {
   const { isAuth } = useSelector(state => state.app)
   return (
-    <nav className={cn('navbar', 'navbar-expand-lg', 'bg-dark', styles.navBar)}>
+    <nav className={cn('navbar', 'navbar-expand-lg', styles.navBar)}>
       <div className={cn('container', styles.navBarContainer)}>
-        <NavLink
-          to='/'
-          className={styles.navLink}
-        >
+        <NavLink to='/' className={styles.navLink}>
           <img className={styles.navbarLogo} src={logo} alt='logo' />
         </NavLink>
         <div className={styles.navList}>

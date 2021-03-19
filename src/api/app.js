@@ -18,4 +18,15 @@ const registration = async data => {
   return { ...response }
 }
 
-export { logIn, registration }
+const refresh = async token => {
+  const response = await request({
+    url: '/token',
+    method: 'post',
+    data: {
+      token,
+    },
+  })
+  return response
+}
+
+export { logIn, registration, refresh }

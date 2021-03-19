@@ -4,3 +4,10 @@
   overflow-x: scroll;
   padding: 0.8rem;
 }
+
+.sectionTitle {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+}

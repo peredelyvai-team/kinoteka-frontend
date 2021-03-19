@@ -1,0 +1,29 @@
+.itemWrapper {
+  height: 100%;
+  padding: 1rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+
+.itemBackdrop {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  filter: contrast(0.5);
+  width: 100%;
+  height: auto;
+  z-index: -9;
+}
+
+.itemDescription {
+}
+
+.descriptionSection {
+  display: flex;
+  width: 100%;
+  padding: 1.5rem;
+}
