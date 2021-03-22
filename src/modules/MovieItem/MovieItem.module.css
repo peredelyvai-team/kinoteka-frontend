@@ -1,29 +1,56 @@
 .itemWrapper {
-  height: 100%;
-  padding: 1rem 0;
   position: relative;
+  min-height: calc(100% - 5rem);
+  height: 1px;
+  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: content-box;
 }
 
 .itemBackdrop {
-  position: absolute;
-  top: 1rem;
+  position: fixed;
+  top: 5rem;
   left: 0;
-  filter: contrast(0.5);
-  width: 100%;
   height: auto;
+  width: 100%;
+  filter: contrast(0.5) blur(1px);
   z-index: -9;
 }
 
+.itemPoster {
+  border-radius: 0.3rem;
+  position: relative;
+  transition: all 0.3s ease;
+  height: 50%;
+  min-height: 10rem;
+  max-height: 20rem;
+  box-shadow: 4px 4px 8px 0px rgba(51, 51, 51, 0.7);
+}
+
 .itemDescription {
+  width: 60%;
 }
 
 .descriptionSection {
+  position: relative;
   display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
   width: 100%;
-  padding: 1.5rem;
+  height: 100%;
+  border-radius: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 253, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+@media screen and (max-width: 576px) {
 }

@@ -14,5 +14,4 @@ export const getItem = async (id, type) => {
     method: 'get',
   })
   return response
-
 }

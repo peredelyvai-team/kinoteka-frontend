@@ -4,7 +4,7 @@ import cn from 'classnames'
 import styles from './Card.module.css'
 
 export const Card = props => {
-  const { id, image, title, overview, type } = props
+  const { id, image, rating, type } = props
 
   return (
     <Link
@@ -12,13 +12,8 @@ export const Card = props => {
       className={styles.cardLink}
     >
       <div className={cn(styles.cardWrapper)}>
-        <div className={cn(styles.cardFront)}>
-          <img src={image} alt='poster' className={styles.cardPoster} />
-          <span className={styles.cardTitle}>{title}</span>
-        </div>
-        <div className={cn(styles.cardBack)}>
-          <p className={cn(styles.cardOverwiev, 'card-text')}>{overview}</p>
-        </div>
+        <img src={image} alt='poster' className={styles.cardPoster} />
+        <span className={styles.cardRating}>{rating}</span>
       </div>
     </Link>
   )
