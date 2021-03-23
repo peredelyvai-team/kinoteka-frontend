@@ -1,8 +1,8 @@
 import request from '../utils/request'
 
-export const getPopular = async page => {
+export const getPopular = async (page, type) => {
   const response = await request({
-    url: `/films/popular?page=${page}`,
+    url: `/films?page=${page}&type=${type}`,
     method: 'get',
   })
   return response

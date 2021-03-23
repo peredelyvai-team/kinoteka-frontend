@@ -5,17 +5,15 @@ import { Section } from '../../components'
 import { Card } from '../../components/Card/Card'
 import { InternetError } from '../../components/InternetError'
 import { checkData } from '../../utils/getGenres'
-import { check } from 'prettier'
 
 export function Main() {
   const [popular, setPopular] = useState([])
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(true)
   const [isError, setError] = useState(false)
 
-  const fetchPopular = async () => {
-    const PAGE = 1
+  const fetchPopular = async (page, type) => {
     setLoading(true)
-    const { data } = await getPopular(PAGE)
+    const { data } = await getPopular(page, type)
     setPopular(data.popularFilms)
     setError(checkData(data.popularFilms))
     console.log(data.popularFilms)
@@ -23,7 +21,8 @@ export function Main() {
   }
 
   useEffect(() => {
-    fetchPopular()
+    fetchPopular(1, 'TOP_100_POPULAR_FILMS')
+    // fetchPopular(1, 'TOP_100_POPULAR_FILMS')
     return () => setLoading(false)
   }, [])
 
@@ -32,9 +31,12 @@ export function Main() {
       {!isError ? (
         <div className='container'>
           <Section title='Популярное'>
-            {isLoading && (
-              <SkeletonSection color={'#202020'} highlightColor={'#fffdfd'} />
-            )}
+            {isLoading &&
+              Array(20)
+                .fill()
+                .map(el => (
+                  <SkeletonSection color={'#fffdfd0'} highlightColor={'#555'} />
+                ))}
             {!isLoading &&
               popular.map(movie => (
                 <Card
@@ -46,7 +48,7 @@ export function Main() {
                 />
               ))}
           </Section>
-          <Section title='Новые'>123</Section>
+          <Section title='Ожидаемые'>123</Section>
         </div>
       ) : (
         <InternetError />
