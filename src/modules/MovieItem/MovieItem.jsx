@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import cn from 'classnames'
-import { BsEye, BsEyeFill } from 'react-icons/bs'
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 import { getItem } from '../../api/movies'
 import { Preloader } from '../../components'
 import { getGenres, getDuration, getDate } from '../../utils/getGenres'
@@ -24,6 +22,7 @@ export const MovieItem = props => {
     fetchItem(id, type)
 
     return () => setLoading(false)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>

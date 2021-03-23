@@ -31,6 +31,7 @@ export const Auth = () => {
     return () => {
       setAuthError('')
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const changeHandler = event => {
     setForm({ ...form, [event.target.name]: event.target.value })
@@ -62,11 +63,11 @@ export const Auth = () => {
 
   return (
     <section className={styles.signIn}>
-      <img src={wave} className={styles.wave} />
+      <img src={wave} className={styles.wave} alt='wave'/>
       {isLoading && <Preloader isShow={isLoading} />}
       {!isLoading && (
         <form className={cn(styles.form, 'jumbotron')}>
-          <img src={avatar} className={styles.avatar} />
+          <img src={avatar} className={styles.avatar} alt='avatar'/>
           <FormError formError={authError} />
           <div className={cn(styles.conInput, 'rounded-sm')}>
             <input
