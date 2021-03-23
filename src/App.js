@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react'
+import cn from 'classnames'
+import { Route } from 'react-router-dom'
+import { useAction } from './hooks'
+import { Auth, Main, MovieItem } from './modules'
+import { NavBar, AuthRoute, PrivateRoute } from './components'
+import './bootstrap.min.css'
 
 function App() {
+  const [loading, setLoading] = useState(true)
+  const { setAuth } = useAction()
+  useEffect(() => {
+    setAuth()
+    setLoading(false)
+  }, [])
+
+  if (loading) {
+    return null
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={cn('min-vh-100')}>
+      <NavBar />
+      <Route exact path='/'>
+        <Main />
+      </Route>
+      <AuthRoute path='/auth'>
+        <Auth />
+      </AuthRoute>
+      <PrivateRoute path='/account'>
+        <>Account Component</>
+      </PrivateRoute>
+      <Route path={'/item/:id'} component={MovieItem} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
