@@ -16,7 +16,6 @@ export function Main() {
     const { data } = await getPopular(page, type)
     setPopular(data.popularFilms)
     setError(checkData(data.popularFilms))
-    console.log(data.popularFilms)
     setLoading(false)
   }
 
