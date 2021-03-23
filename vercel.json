@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_DEPLOY_API_PATH": "@kinoteka-backend"
+    }
+  }
+}
