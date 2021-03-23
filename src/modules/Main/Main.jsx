@@ -50,7 +50,7 @@ export function Main() {
           ) : (
             <>
               {isLoadingPopular &&
-                Array(20)
+                Array(5)
                   .fill()
                   .map(el => (
                     <SkeletonSection
@@ -79,7 +79,7 @@ export function Main() {
           ) : (
             <>
               {isLoadingAwait &&
-                Array(20)
+                Array(5)
                   .fill()
                   .map(el => (
                     <SkeletonSection
@@ -103,7 +103,6 @@ export function Main() {
           )}
         </Section>
       </div>
-      )
     </>
   )
 }
