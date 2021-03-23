@@ -90,16 +90,14 @@ service.interceptors.response.use(
   async error => {
     if (error.response && error.response.status === 403) {
       if (error.response.data.error === 'Forbidden') {
-        return
+        if (!isPending) {
+          isPending = true
+          refreshToken().then(() => {
+            isPending = false
+            resendPendingRequests()
+          })
+        }
       }
-      if (!isPending) {
-        isPending = true
-        refreshToken().then(() => {
-          isPending = false
-          resendPendingRequests()
-        })
-      }
-
       return new Promise((resolve, reject) => {
         lastRequest.resolve = resolve
         lastRequest.reject = reject

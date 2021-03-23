@@ -3,7 +3,6 @@
   min-height: calc(100% - 5rem);
   padding-top: 1rem;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
@@ -20,7 +19,9 @@
   height: 60%;
   min-height: 10rem;
   max-height: 25rem;
-  box-shadow: 4px 8px 10px 5px rgba(51, 51, 51, 1);
+  border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+  border: 0.1rem solid #333;
+  background-color: #333;
   margin: 0 0.5rem 0.5rem;
 }
 
@@ -38,7 +39,6 @@
 .descriptionSection {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   padding: 1rem 0;
   width: 100%;
   height: 100%;
@@ -50,6 +50,7 @@
 }
 
 .itemTitle {
+  padding: 1rem 0;
   width: 100%;
   text-align: center;
   font-family: var(--font-family-monospace);
@@ -62,13 +63,26 @@
 .itemTagline {
   margin-top: 1rem;
   align-self: center;
-  width: 90%;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   background-color: rgba(4, 4, 4, 0.1);
 }
 
 .itemOverwiew {
   padding: 1rem;
-  text-align: left;
+  text-align: justify;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 576px) {
+  .descriptionSection {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .itemDescription {
+    width: 100%;
+  }
 }
