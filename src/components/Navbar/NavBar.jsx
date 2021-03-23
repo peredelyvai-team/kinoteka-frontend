@@ -22,11 +22,11 @@ export function NavBar() {
             Фильмы
           </NavLink>
           <NavLink
-            to='/serials'
+            to='/top'
             className={styles.navLink}
             activeClassName={styles.navLinkActive}
           >
-            Сериалы
+            Top-150
           </NavLink>
           {!isAuth && (
             <NavLink

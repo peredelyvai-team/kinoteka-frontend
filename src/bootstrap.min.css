@@ -34,6 +34,8 @@
   --light: #fff;
   --dark: #555;
   --input-field: rgb(242, 243, 247);
+  --plyr-color-main: #333;
+  --plyr-menu-border-color: #555;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;

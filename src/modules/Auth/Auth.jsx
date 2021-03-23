@@ -63,11 +63,9 @@ export const Auth = () => {
   return (
     <section className={styles.signIn}>
       <img src={wave} className={styles.wave} />
-      {isLoading ? (
-        <Preloader isShow={isLoading} />
-      ) : (
+      {isLoading && <Preloader isShow={isLoading} />}
+      {!isLoading && (
         <form className={cn(styles.form, 'jumbotron')}>
-          {/* <h1 className={cn('h2', 'mb-3', 'text-center')}>Вход</h1> */}
           <img src={avatar} className={styles.avatar} />
           <FormError formError={authError} />
           <div className={cn(styles.conInput, 'rounded-sm')}>
