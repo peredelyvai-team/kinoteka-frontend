@@ -38,6 +38,7 @@ service.interceptors.request.use(
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       Accept: 'application/json',
+      url: `${process.env.REACT_APP_API_PATH}${config.url}`
     }
 
     const token = localStorage.getItem('access_token')
