@@ -2,76 +2,65 @@
   cursor: pointer;
   display: flex;
   position: relative;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 4rem;
-  min-height: 5rem;
-  height: 12rem;
-  width: 9rem;
-  background-color: var(--light);
-  perspective: 1000;
-  word-break: break-all;
-  backface-visibility: hidden;
-  position: relative;
+  flex-shrink: 0;
+  height: 15rem;
+  width: 10rem;
+  min-width: 10%;
+  margin: 0 1rem;
+  border: 0.1rem solid #333;
+  border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+  overflow: hidden;
+  box-shadow: -1px 4px 10px -4px rgba(85, 85, 85, 0.34);
+  background-color: var(--primary);
+  transition: all 0.2s ease;
 }
 
-.cardFront,
-.cardBack {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  padding: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  transition: all 1s ease-in-out;
+.cardWrapper:hover {
+  transform: scale(1.1);
 }
-
-.cardFront {
-  background: black;
+.cardWrapper:hover .cardTitle {
+  opacity: 1;
 }
-.cardBack {
-  background: var(--light);
-  transform: rotateY(180deg);
-}
-.cardWrapper:hover .cardFront {
-  transform: rotateY(180deg);
-}
-.cardWrapper:hover .cardBack {
-  transform: rotateY(360deg);
-}
-
-.cardOverwiev {
-  font-size: 0.9rem;
-  text-align: left;
-  letter-spacing: 0.1rem;
-  color: var(--primary);
-  text-overflow: ellipsis;
-}
-
-.cardOverwiev::first-letter {
-  font-size: 1rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 .cardPoster {
   width: 100%;
-  height: auto;
-  backdrop-filter: blur(2px);
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardRating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 75%;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 253, 253, 0.2);
+  backdrop-filter: blur(3px);
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 0.1rem 0.1rem var(--primary);
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
 }
 
 .cardTitle {
   display: inline-block;
-  position: relative;
-  transform: translateY(200%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
   padding: 0 0.3rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 253, 253, 0.7);
+  backdrop-filter: blur(2px);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.2rem;
+  transition: all 0.2s ease;
 }

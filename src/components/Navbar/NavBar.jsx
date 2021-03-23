@@ -2,19 +2,15 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { BiUserCircle, BiLogIn } from 'react-icons/bi'
 import cn from 'classnames'
-import logo from '../../assets/Logo.svg'
+import logo from '../../assets/Logo.png'
 import styles from './NavBar.module.css'
 
 export function NavBar() {
   const { isAuth } = useSelector(state => state.app)
   return (
-    <nav className={cn('navbar', 'navbar-expand-lg', 'bg-dark', styles.navBar)}>
+    <nav className={cn('navbar', 'navbar-expand-lg', styles.navBar)}>
       <div className={cn('container', styles.navBarContainer)}>
-        <NavLink
-          to='/'
-          className={styles.navLink}
-          activeClassName={styles.navLinkActive}
-        >
+        <NavLink to='/' className={styles.navLink}>
           <img className={styles.navbarLogo} src={logo} alt='logo' />
         </NavLink>
         <div className={styles.navList}>
@@ -26,11 +22,11 @@ export function NavBar() {
             Фильмы
           </NavLink>
           <NavLink
-            to='/serials'
+            to='/top'
             className={styles.navLink}
             activeClassName={styles.navLinkActive}
           >
-            Сериалы
+            Top-150
           </NavLink>
           {!isAuth && (
             <NavLink

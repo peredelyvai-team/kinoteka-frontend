@@ -1,18 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import cn from 'classnames'
-import { useSelector } from 'react-redux'
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { useAction } from './hooks'
-import { Auth, Main } from './modules'
-import { NavBar } from './components'
+import { Auth, Main, MovieItem } from './modules'
+import { NavBar, AuthRoute, PrivateRoute } from './components'
 import './bootstrap.min.css'
 
 function App() {
-  const { isAuth } = useSelector(state => state.app)
+  const [loading, setLoading] = useState(true)
   const { setAuth } = useAction()
   useEffect(() => {
     setAuth()
+    setLoading(false)
   }, [])
+
+  if (loading) {
+    return null
+  }
 
   return (
     <div className={cn('min-vh-100')}>
@@ -20,8 +24,13 @@ function App() {
       <Route exact path='/'>
         <Main />
       </Route>
-      {isAuth && <Redirect to='/' from='/auth' />}
-      <Route path='/auth' component={Auth} />
+      <AuthRoute path='/auth'>
+        <Auth />
+      </AuthRoute>
+      <PrivateRoute path='/account'>
+        <>Account Component</>
+      </PrivateRoute>
+      <Route path={'/item/:id'} component={MovieItem} />
     </div>
   )
 }

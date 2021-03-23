@@ -1,11 +1,14 @@
 .navbarLogo {
   height: 100%;
-  width: auto;
+  width: 3rem;
+  border-radius: 5%;
+  padding: 0.1rem;
 }
 .navBar {
   max-height: 7rem;
   height: 4rem;
   border-radius: 0px 25px 55px 5px/5px 0px 25px 25px;
+  background-color: var(--primary);
 }
 .navBarContainer {
   width: 100%;
@@ -46,16 +49,13 @@
   opacity: 0.8;
 }
 
-.navLinkActive {
-}
-
 .navLinkActive::after {
   position: absolute;
   bottom: -0.5rem;
   content: '';
   display: block;
-  width: 100%;
+  width: 50%;
   height: 0.3rem;
   border-radius: 3rem;
-  background-color: var(--primary);
+  background-color: rgba(0, 0, 0, 0.5);
 }

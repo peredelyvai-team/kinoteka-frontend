@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { refresh } from '../api/app'
+import { setTokens } from '../utils/setTokens'
 
 let requestQueue = []
 let lastRequest = {}
@@ -38,7 +40,7 @@ service.interceptors.request.use(
       Accept: 'application/json',
     }
 
-    const token = localStorage.getItem('ACCESS_TOKEN')
+    const token = localStorage.getItem('access_token')
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`
     }
@@ -51,15 +53,24 @@ service.interceptors.request.use(
 )
 
 async function refreshToken() {
-  return new Promise((resolve, _) => {
-    const rt = localStorage.getItem('REFRESH_TOKEN')
-    // TODO: request refresh token
+  return new Promise(async (resolve, reject) => {
+    const token = localStorage.getItem('refresh_token')
+    try {
+      const response = await refresh(token)
+      console.log(response)
+      setTokens(response.data.accessToken, response.data.refreshToken)
+      resolve(response)
+    } catch (error) {
+      console.log(`Error in request: ${error}`)
+      reject(error.response)
+    }
   })
 }
 
 function resendPendingRequests() {
   requestQueue.forEach(async deferredRequest => {
     const config = deferredRequest.config
+    console.log(config)
     const resolve = deferredRequest.resolve
     try {
       const response = await service(config)
@@ -77,18 +88,16 @@ service.interceptors.response.use(
     return response
   },
   async error => {
-    if (error.response && error.response.status === 401) {
-      if (error.response.data.error === 'access_denied') {
-        return
+    if (error.response && error.response.status === 403) {
+      if (error.response.data.error === 'Forbidden') {
+        if (!isPending) {
+          isPending = true
+          refreshToken().then(() => {
+            isPending = false
+            resendPendingRequests()
+          })
+        }
       }
-      if (!isPending) {
-        isPending = true
-        refreshToken().then(() => {
-          isPending = false
-          resendPendingRequests()
-        })
-      }
-
       return new Promise((resolve, reject) => {
         lastRequest.resolve = resolve
         lastRequest.reject = reject

@@ -34,6 +34,8 @@
   --light: #fff;
   --dark: #555;
   --input-field: rgb(242, 243, 247);
+  --plyr-color-main: #333;
+  --plyr-menu-border-color: #555;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -78,12 +80,12 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  font-size: 1rem;
+  font-size: 1  rem;
 }
 
 *::-webkit-scrollbar {
-  width: 0.4rem;
-  height: 1rem;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 *::-webkit-scrollbar-track {
@@ -178,10 +180,7 @@ a {
   text-decoration: underline;
   background-color: transparent;
 }
-a:hover {
-  color: #0d0d0d;
-  text-decoration: underline;
-}
+
 a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
@@ -4969,7 +4968,6 @@ a.badge-dark:focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: transparent;
   border-radius: 35px;
 }
 @media (min-width: 576px) {
@@ -7544,6 +7542,7 @@ button.bg-dark:hover {
 }
 .min-vh-100 {
   min-height: 100vh !important;
+  height: 1px;
 }
 .vw-100 {
   width: 100vw !important;

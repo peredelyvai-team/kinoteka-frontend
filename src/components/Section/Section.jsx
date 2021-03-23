@@ -4,7 +4,7 @@ import styles from './Section.module.css'
 export function Section({ title, children }) {
   return (
     <>
-      <h1>{title}</h1>
+      <h2 className={styles.sectionTitle}>{title}</h2>
       <div className={styles.list}>{children}</div>
     </>
   )

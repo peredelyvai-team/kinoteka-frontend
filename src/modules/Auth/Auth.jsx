@@ -5,6 +5,8 @@ import { FormError } from '../../components/index'
 import { useAction } from '../../hooks'
 import { Preloader } from '../../components/Preloader'
 import { useSelector } from 'react-redux'
+import wave from '../../assets/wave.png'
+import avatar from '../../assets/profile-pic.svg'
 import styles from './Auth.module.css'
 
 export const Auth = () => {
@@ -60,11 +62,11 @@ export const Auth = () => {
 
   return (
     <section className={styles.signIn}>
-      {isLoading ? (
-        <Preloader isShow={isLoading} />
-      ) : (
+      <img src={wave} className={styles.wave} />
+      {isLoading && <Preloader isShow={isLoading} />}
+      {!isLoading && (
         <form className={cn(styles.form, 'jumbotron')}>
-          <h1 className={cn('h2', 'mb-3', 'text-center')}>Вход</h1>
+          <img src={avatar} className={styles.avatar} />
           <FormError formError={authError} />
           <div className={cn(styles.conInput, 'rounded-sm')}>
             <input
