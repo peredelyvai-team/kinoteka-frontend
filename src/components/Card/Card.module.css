@@ -20,6 +20,9 @@
 .cardWrapper:hover {
   transform: scale(1.1);
 }
+.cardWrapper:hover .cardTitle {
+  opacity: 1;
+}
 .cardPoster {
   width: 100%;
   height: 100%;
@@ -33,8 +36,8 @@
   position: absolute;
   top: 0;
   left: 75%;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background-color: rgba(255, 253, 253, 0.2);
   backdrop-filter: blur(3px);
@@ -43,4 +46,21 @@
   text-shadow: 0 0.1rem 0.1rem var(--primary);
   font-size: 1rem;
   letter-spacing: 0.2rem;
+}
+
+.cardTitle {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  padding: 0 0.3rem;
+  background-color: rgba(255, 253, 253, 0.7);
+  backdrop-filter: blur(2px);
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s ease;
 }

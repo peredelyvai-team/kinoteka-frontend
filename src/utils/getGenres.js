@@ -22,5 +22,5 @@ export const getDate = date => {
 }
 
 export const checkData = data => {
-  return data.length == 0
+  return !data
 }

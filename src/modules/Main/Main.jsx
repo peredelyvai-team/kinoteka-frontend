@@ -1,57 +1,109 @@
 import { useEffect, useState } from 'react'
 import { SkeletonSection } from '../../skeletons'
-import { getPopular } from '../../api/movies'
+import { getTop } from '../../api/movies'
 import { Section } from '../../components'
 import { Card } from '../../components/Card/Card'
-import { InternetError } from '../../components/InternetError'
+import { SectionError } from '../../components/SectionError'
 import { checkData } from '../../utils/getGenres'
 
 export function Main() {
   const [popular, setPopular] = useState([])
-  const [isLoading, setLoading] = useState(true)
-  const [isError, setError] = useState(false)
+  const [awaitFilms, setAwaitFilms] = useState([])
+  const [isLoadingPopular, setLoadingPopular] = useState(true)
+  const [isLoadingAwait, setLoadingAwait] = useState(true)
+  const [isErrorPopular, setErrorPopular] = useState(false)
+  const [isErrorAwait, setErrorAwait] = useState(false)
 
-  const fetchPopular = async (page, type) => {
-    setLoading(true)
-    const { data } = await getPopular(page, type)
-    setPopular(data.popularFilms)
-    setError(checkData(data.popularFilms))
-    setLoading(false)
+  const fetchPopular = async () => {
+    const PAGE = 1
+    const TYPE = 'TOP_100_POPULAR_FILMS'
+    setLoadingPopular(true)
+    const { data } = await getTop(PAGE, TYPE)
+    setPopular(data.films)
+    setErrorPopular(checkData(data.films))
+    setLoadingPopular(false)
+  }
+
+  const fetchAwait = async () => {
+    const PAGE = 1
+    const TYPE = 'TOP_AWAIT_FILMS'
+    setLoadingAwait(true)
+    const { data } = await getTop(PAGE, TYPE)
+    console.log(data)
+    setAwaitFilms(data.films)
+    setErrorAwait(checkData(data.films))
+    setLoadingAwait(false)
   }
 
   useEffect(() => {
-    fetchPopular(1, 'TOP_100_POPULAR_FILMS')
-    // fetchPopular(1, 'TOP_100_POPULAR_FILMS')
-    return () => setLoading(false)
+    fetchPopular()
+    fetchAwait()
+    return () => setLoadingPopular(false)
   }, [])
 
   return (
     <>
-      {!isError ? (
-        <div className='container'>
-          <Section title='Популярное'>
-            {isLoading &&
-              Array(20)
-                .fill()
-                .map(el => (
-                  <SkeletonSection color={'#fffdfd0'} highlightColor={'#555'} />
+      <div className='container'>
+        <Section title='Популярное'>
+          {isErrorPopular ? (
+            <SectionError callback={fetchPopular} />
+          ) : (
+            <>
+              {isLoadingPopular &&
+                Array(20)
+                  .fill()
+                  .map(el => (
+                    <SkeletonSection
+                      color={'#fffdfd0'}
+                      highlightColor={'#555'}
+                    />
+                  ))}
+
+              {!isLoadingPopular &&
+                popular.map(movie => (
+                  <Card
+                    key={movie.id}
+                    image={movie.poster_small}
+                    rating={movie.rating}
+                    type={'films'}
+                    title={movie.title}
+                    id={movie.id}
+                  />
                 ))}
-            {!isLoading &&
-              popular.map(movie => (
-                <Card
-                  key={movie.id}
-                  image={movie.poster_small}
-                  rating={movie.rating}
-                  type={'films'}
-                  id={movie.id}
-                />
-              ))}
-          </Section>
-          <Section title='Ожидаемые'>123</Section>
-        </div>
-      ) : (
-        <InternetError />
-      )}
+            </>
+          )}
+        </Section>
+        <Section title='Ожидаемые'>
+          {isErrorAwait ? (
+            <SectionError callback={fetchAwait} />
+          ) : (
+            <>
+              {isLoadingAwait &&
+                Array(20)
+                  .fill()
+                  .map(el => (
+                    <SkeletonSection
+                      color={'#fffdfd0'}
+                      highlightColor={'#555'}
+                    />
+                  ))}
+
+              {!isLoadingAwait &&
+                awaitFilms.map(movie => (
+                  <Card
+                    key={movie.id}
+                    image={movie.poster_small}
+                    rating={movie.rating}
+                    type={'films'}
+                    title={movie.title}
+                    id={movie.id}
+                  />
+                ))}
+            </>
+          )}
+        </Section>
+      </div>
+      )
     </>
   )
 }

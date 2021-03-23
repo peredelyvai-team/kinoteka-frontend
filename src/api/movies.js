@@ -1,6 +1,6 @@
 import request from '../utils/request'
 
-export const getPopular = async (page, type) => {
+export const getTop = async (page, type) => {
   const response = await request({
     url: `/films?page=${page}&type=${type}`,
     method: 'get',

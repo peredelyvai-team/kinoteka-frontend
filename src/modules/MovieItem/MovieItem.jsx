@@ -5,6 +5,7 @@ import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 import { getItem } from '../../api/movies'
 import { Preloader } from '../../components'
 import { getGenres, getDuration, getDate } from '../../utils/getGenres'
+import photo from '../../assets/Logo.png'
 import styles from './MovieItem.module.css'
 
 export const MovieItem = props => {
@@ -28,8 +29,11 @@ export const MovieItem = props => {
     <>
       {isLoading && <Preloader isShow={isLoading} />}
       {!isLoading && (
-        <section className={styles.itemWrapper}>
-          <div className={cn(styles.descriptionSection, 'container')}>
+        <section
+          className={cn(styles.itemWrapper, 'container')}
+          style={{ backgroundImage: `"url(${photo})"` }}
+        >
+          <div className={cn(styles.descriptionSection)}>
             <div className={styles.posterSection}>
               <img
                 src={movie.poster_small}

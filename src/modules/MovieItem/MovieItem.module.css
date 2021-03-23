@@ -5,11 +5,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-clip: content-box;
+  background-color: rgba(4, 4, 4, 0.1);
 }
 
 .itemPoster {
@@ -34,6 +30,7 @@
   width: 70%;
   padding-bottom: 1rem;
   font-family: var(--font-family-monospace);
+  background-color: lightgreen;
 }
 
 .descriptionSection {
@@ -45,22 +42,22 @@
   border-radius: 1rem;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: rgba(255, 255, 253, 0.2);
-  backdrop-filter: blur(2px);
+  background-color: rgba(4, 4, 4, 0.4);
+  backdrop-filter: blur(1px);
 }
 
 .itemTitle {
   padding: 1rem 0;
   width: 100%;
   text-align: center;
-  font-family: var(--font-family-monospace);
   font-size: 2rem;
   font-weight: 900;
-  color: #000;
+  color: thistle;
   letter-spacing: 0.1rem;
 }
 
 .itemTagline {
+  padding: 0.3rem;
   margin-top: 1rem;
   align-self: center;
   width: 100%;
