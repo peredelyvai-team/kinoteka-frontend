@@ -28,7 +28,6 @@ export const checkData = data => {
   return !data
 }
 
-
 export const getTrailerPath = path => {
   if (path) {
     return path.slice(0, path.indexOf('&autoplay=1')) + '&autoplay=0'
@@ -36,6 +35,9 @@ export const getTrailerPath = path => {
 }
 
 export const getRating = rating => {
-  let percentRating = rating <= 10 ? rating * 10 : rating.slice(0, rating.indexOf('%'))
-  return percentRating
+  if (!!rating) {
+    let percentRating =
+      rating <= 10 ? rating * 10 : rating.slice(0, rating.indexOf('%'))
+    return percentRating
+  }
 }

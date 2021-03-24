@@ -67,6 +67,8 @@ export function Main() {
                     rating={movie.rating}
                     type={'films'}
                     title={movie.title}
+                    isViewed={movie.viewed}
+                    isFavorite={movie.to_watched}
                     id={movie.id}
                   />
                 ))}
@@ -81,8 +83,9 @@ export function Main() {
               {isLoadingAwait &&
                 Array(5)
                   .fill()
-                  .map(el => (
+                  .map((el, index) => (
                     <SkeletonSection
+                      key={index}
                       color={'#fffdfd0'}
                       highlightColor={'#555'}
                     />

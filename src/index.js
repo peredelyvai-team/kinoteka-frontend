@@ -9,6 +9,9 @@ import './index.css'
 
 const store = configureStore()
 
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider store={store}>
