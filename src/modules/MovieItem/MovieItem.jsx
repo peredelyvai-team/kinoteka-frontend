@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import cn from 'classnames'
 import { Rating } from '../../components'
 import { getItem } from '../../api/movies'
-import { Preloader } from '../../components'
-import { BsEye, BsEyeFill, BsLockFill } from 'react-icons/bs'
+import { Preloader, InternetError } from '../../components'
+import { BsEye, BsEyeFill } from 'react-icons/bs'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
 import {
   getGenres,
   getDuration,
   getDate,
   getTrailerPath,
+  checkData,
 } from '../../utils/getGenres'
 import styles from './MovieItem.module.css'
 import { useSelector } from 'react-redux'
@@ -17,14 +18,22 @@ import { useSelector } from 'react-redux'
 export const MovieItem = props => {
   const { id, type } = props.location.state
   const [movie, setMovie] = useState({})
+  const [isViewed, setViewed] = useState(false)
+  const [isFavorite, setFavorite] = useState(false)
+  const [isError, setError] = useState(false)
+
   const [isLoading, setLoading] = useState(true)
 
   const { isAuth } = useSelector(state => state.app)
   const fetchItem = async (id, type) => {
     setLoading(true)
-    const response = await getItem(id, type)
+    const response = await getItem(-1, type)
     setMovie(response.data)
+    setViewed(response.data.viewed)
+    setFavorite(response.data.to_watch)
     setLoading(false)
+    setError(checkData(response.data))
+    console.log(isError)
   }
 
   useEffect(() => {
@@ -34,8 +43,11 @@ export const MovieItem = props => {
   }, [])
   return (
     <>
-      {isLoading && <Preloader isShow={isLoading} />}
-      {!isLoading && (
+      {isError ? (
+        <InternetError />
+      ) : isLoading ? (
+        <Preloader isShow={isLoading} />
+      ) : (
         <>
           <section
             style={{
@@ -64,12 +76,12 @@ export const MovieItem = props => {
                   <Rating rating={movie.rating} size='xl' />
                   {isAuth && (
                     <>
-                      {movie.viewed ? (
+                      {isViewed ? (
                         <BsEyeFill className={styles.icon} />
                       ) : (
                         <BsEye className={styles.icon} />
                       )}
-                      {movie.to_watched ? (
+                      {isFavorite ? (
                         <MdFavorite className={styles.icon} />
                       ) : (
                         <MdFavoriteBorder className={styles.icon} />

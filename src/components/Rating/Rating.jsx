@@ -5,7 +5,6 @@ import cn from 'classnames'
 import styles from './Rating.module.css'
 
 export const Rating = ({ rating, size }) => {
-  console.log(rating)
   const percents = getRating(rating)
 
   return (

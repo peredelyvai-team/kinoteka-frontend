@@ -36,7 +36,6 @@ export const getTrailerPath = path => {
 }
 
 export const getRating = rating => {
-  console.log(rating);
   let percentRating = rating <= 10 ? rating * 10 : rating.slice(0, rating.indexOf('%'))
   return percentRating
 }
