@@ -29,7 +29,6 @@ export function Main() {
     const TYPE = 'TOP_AWAIT_FILMS'
     setLoadingAwait(true)
     const { data } = await getTop(PAGE, TYPE)
-    console.log(data)
     setAwaitFilms(data.films)
     setErrorAwait(checkData(data.films))
     setLoadingAwait(false)

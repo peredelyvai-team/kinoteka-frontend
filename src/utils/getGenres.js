@@ -38,6 +38,8 @@ export const getRating = rating => {
   if (!!rating) {
     let percentRating =
       rating <= 10 ? rating * 10 : rating.slice(0, rating.indexOf('%'))
+    console.log("Rating:" + rating);
     return percentRating
   }
+  return 0
 }
