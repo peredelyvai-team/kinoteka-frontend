@@ -74,7 +74,7 @@ export const MovieItem = props => {
               <div className={styles.itemDescription}>
                 <h2 className={styles.itemTitle}>{movie.title}</h2>
                 <div className={styles.toggleBar}>
-                  {/* <Rating rating={movie.rating} size='xl' /> */}
+                  <Rating rating={movie.rating} size='xl' />
                   {isAuth && (
                     <>
                       {isViewed ? (
@@ -101,6 +101,7 @@ export const MovieItem = props => {
               src={getTrailerPath(movie.trailer_path)}
               width='100%'
               height='500'
+              title={movie.title}
               frameBorder='0'
               allow=''
             ></iframe>
