@@ -27,7 +27,7 @@ export const MovieItem = props => {
   const { isAuth } = useSelector(state => state.app)
   const fetchItem = async (id, type) => {
     setLoading(true)
-    const response = await getItem(-1, type)
+    const response = await getItem(id, type)
     setMovie(response.data)
     setViewed(response.data.viewed)
     setFavorite(response.data.to_watch)
@@ -74,7 +74,7 @@ export const MovieItem = props => {
               <div className={styles.itemDescription}>
                 <h2 className={styles.itemTitle}>{movie.title}</h2>
                 <div className={styles.toggleBar}>
-                  <Rating rating={movie.rating} size='xl' />
+                  {/* <Rating rating={movie.rating} size='xl' /> */}
                   {isAuth && (
                     <>
                       {isViewed ? (
