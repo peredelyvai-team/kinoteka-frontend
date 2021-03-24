@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import cn from 'classnames'
+<<<<<<< HEAD
 import { Rating } from '../../components'
 import { getItem } from '../../api/movies'
 import { Preloader, InternetError } from '../../components'
@@ -12,6 +13,12 @@ import {
   getTrailerPath,
   checkData,
 } from '../../utils/getGenres'
+=======
+import { getItem } from '../../api/movies'
+import { Preloader } from '../../components'
+import { getGenres, getDuration, getDate } from '../../utils/getGenres'
+import photo from '../../assets/Logo.png'
+>>>>>>> b6d40e55e3c34163fcb57829e965988beb463cc4
 import styles from './MovieItem.module.css'
 import { useSelector } from 'react-redux'
 
@@ -40,6 +47,7 @@ export const MovieItem = props => {
     fetchItem(id, type)
 
     return () => setLoading(false)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <>
