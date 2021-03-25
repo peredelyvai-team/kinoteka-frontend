@@ -1,6 +1,6 @@
 import { SET_AUTH, SET_AUTH_ERROR } from '../types'
 import { logIn, registration } from '../../api/app'
-import { setTokens } from '../../utils/setTokens'
+import { setTokens } from '../../utils/auth'
 import { authResponseMapping } from '../../utils/authResponseMapping'
 
 export function setAuth() {

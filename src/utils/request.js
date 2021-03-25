@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { refresh } from '../api/app'
-import { setTokens } from '../utils/setTokens'
+import { setTokens } from '../utils/auth'
 
 let requestQueue = []
 let lastRequest = {}

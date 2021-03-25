@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import styles from './Section.module.css'
 
-export function Section({ title, children }) {
+export function Section({ title, children, action }) {
   return (
     <>
-      <h2 className={styles.sectionTitle}>{title}</h2>
+      <div className={styles.wrapper}>
+        <h2 className={styles.title}>{title}</h2>
+        {action || null}
+      </div>
       <div className={styles.list}>{children}</div>
     </>
   )
@@ -13,4 +16,5 @@ export function Section({ title, children }) {
 Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  action: PropTypes.any,
 }

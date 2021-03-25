@@ -57,6 +57,7 @@ export const removeFavorite = async id => {
   return response
 }
 
+<<<<<<< HEAD
 
 export const fetchMoviesByWord = async (page, word) => {
   const response = await request({
@@ -69,3 +70,22 @@ export const fetchMoviesByWord = async (page, word) => {
   })
   return response
 }
+=======
+export const getViewed = async id => {
+  const { userId } = jwt_decode(localStorage.getItem('access_token'))
+  const response = await request({
+    url: `/users/${userId}/films/viewed`,
+    method: 'get',
+  })
+  return response
+}
+
+export const getFavorites = async id => {
+  const { userId } = jwt_decode(localStorage.getItem('access_token'))
+  const response = await request({
+    url: `/users/${userId}/films/to_watch`,
+    method: 'get',
+  })
+  return response
+}
+>>>>>>> c7826be67e5a9f0a2c7b2b1d1f01cdfc03770d35
