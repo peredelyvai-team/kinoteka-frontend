@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { BiUserCircle, BiLogIn, BiLogOut } from 'react-icons/bi'
+import { BiUserCircle, BiLogIn, BiXCircle } from 'react-icons/bi'
 import { useAction } from '../../hooks'
 import { resetTokens } from '../../utils/auth'
 import cn from 'classnames'
@@ -57,7 +57,7 @@ export function NavBar() {
               >
                 <BiUserCircle size={'1.8rem'} />
               </NavLink>
-              <BiLogOut
+              <BiXCircle
                 style={{ cursor: 'pointer' }}
                 onClick={logout}
                 size={'1.8rem'}
