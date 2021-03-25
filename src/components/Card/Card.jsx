@@ -8,13 +8,10 @@ import cn from 'classnames'
 import styles from './Card.module.css'
 
 export const Card = props => {
-  const { id, image, rating, type, title, isViewed, isFavorite } = props
+  const { id, image, rating, title, isViewed, isFavorite } = props
   const { isAuth } = useSelector(state => state.app)
   return (
-    <Link
-      to={{ pathname: `/item/${id}`, state: { id, type } }}
-      className={styles.cardLink}
-    >
+    <Link to={{ pathname: `/item/${id}` }} className={styles.cardLink}>
       <div className={cn(styles.cardWrapper)}>
         <img src={image} alt='poster' className={styles.cardPoster} />
         <Rating rating={rating} size='xs' className={styles.cardRating} />

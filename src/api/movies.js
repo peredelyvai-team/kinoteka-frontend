@@ -11,7 +11,7 @@ export const getTop = async (page, type) => {
 
 export const getItem = async (id, type) => {
   const response = await request({
-    url: `/${type}/${id}`,
+    url: `/films/${id}`,
     method: 'get',
   })
   return response

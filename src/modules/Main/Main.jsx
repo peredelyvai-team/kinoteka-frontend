@@ -64,7 +64,6 @@ export function Main() {
                     key={movie.id}
                     image={movie.poster_small}
                     rating={movie.rating}
-                    type={'films'}
                     title={movie.title}
                     isViewed={movie.viewed}
                     isFavorite={movie.to_watched}

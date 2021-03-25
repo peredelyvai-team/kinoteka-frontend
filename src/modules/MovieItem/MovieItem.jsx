@@ -11,6 +11,8 @@ import {
 import { Preloader, InternetError } from '../../components'
 import { BsEye, BsEyeFill, BsPlayFill } from 'react-icons/bs'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router'
 import {
   getGenres,
   getDuration,
@@ -19,10 +21,9 @@ import {
   checkData,
 } from '../../utils/getGenres'
 import styles from './MovieItem.module.css'
-import { useSelector } from 'react-redux'
 
 export const MovieItem = props => {
-  const { id, type } = props.location.state
+  const { id } = useParams()
   const [movie, setMovie] = useState({})
   const [isViewed, setViewed] = useState(false)
   const [isFavorite, setFavorite] = useState(false)
@@ -32,9 +33,9 @@ export const MovieItem = props => {
   const [isLoading, setLoading] = useState(true)
 
   const { isAuth } = useSelector(state => state.app)
-  const fetchItem = async (id, type) => {
+  const fetchItem = async id => {
     setLoading(true)
-    const response = await getItem(id, type)
+    const response = await getItem(id)
     setMovie(response.data)
     setViewed(response.data.viewed)
     setFavorite(response.data.to_watch)
@@ -75,13 +76,13 @@ export const MovieItem = props => {
 
   const ref = React.createRef()
   useEffect(() => {
-    fetchItem(id, type)
+    fetchItem(id)
     return () => {
       setLoading(true)
       setError(false)
       setTrailerShow(false)
     }
-  }, [id, type])
+  }, [id])
   return (
     <>
       {isError ? (
