@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import cn from 'classnames'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { useAction } from './hooks'
 import { Auth, Main, MovieItem } from './modules'
-import { NavBar, AuthRoute, PrivateRoute } from './components'
+import { NavBar, AuthRoute, PrivateRoute, PageNotFound } from './components'
 import './bootstrap.min.css'
+import { FilmContainer } from './components/FilmContainer'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -32,6 +33,7 @@ function App() {
         <>Account Component</>
       </PrivateRoute>
       <Route path={'/item/:id'} component={MovieItem} />
+      <Route path={['/films', '/top', '/favorite', '/watch']} component={FilmContainer} />
     </div>
   )
 }

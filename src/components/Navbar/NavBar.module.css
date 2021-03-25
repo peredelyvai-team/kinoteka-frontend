@@ -4,6 +4,7 @@
   border-radius: 5%;
   padding: 0.1rem;
 }
+
 .navBar {
   max-height: 7rem;
   height: 4rem;
@@ -49,6 +50,11 @@
   opacity: 0.8;
 }
 
+.shrink {
+  width: fit-content;
+  margin-left: 0.5rem;
+}
+
 .navLinkActive::after {
   position: absolute;
   bottom: -0.5rem;
@@ -58,4 +64,10 @@
   height: 0.3rem;
   border-radius: 3rem;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 576px) {
+  .navList {
+    width: 70%;
+  }
 }

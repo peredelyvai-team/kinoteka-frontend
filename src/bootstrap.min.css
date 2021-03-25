@@ -41,8 +41,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: Neucha, -apple-system, system-ui, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-sans-serif: Neucha, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
   font-size: calc(14px + (24 - 16) * ((100vw - 300px) / (2800 - 300)));
