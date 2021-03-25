@@ -29,7 +29,6 @@ export function Main() {
     const TYPE = 'TOP_AWAIT_FILMS'
     setLoadingAwait(true)
     const { data } = await getTop(PAGE, TYPE)
-    console.log(data)
     setAwaitFilms(data.films)
     setErrorAwait(checkData(data.films))
     setLoadingAwait(false)
@@ -50,7 +49,7 @@ export function Main() {
           ) : (
             <>
               {isLoadingPopular &&
-                Array(20)
+                Array(5)
                   .fill()
                   .map(el => (
                     <SkeletonSection
@@ -65,8 +64,9 @@ export function Main() {
                     key={movie.id}
                     image={movie.poster_small}
                     rating={movie.rating}
-                    type={'films'}
                     title={movie.title}
+                    isViewed={movie.viewed}
+                    isFavorite={movie.to_watched}
                     id={movie.id}
                   />
                 ))}
@@ -79,10 +79,11 @@ export function Main() {
           ) : (
             <>
               {isLoadingAwait &&
-                Array(20)
+                Array(5)
                   .fill()
-                  .map(el => (
+                  .map((el, index) => (
                     <SkeletonSection
+                      key={index}
                       color={'#fffdfd0'}
                       highlightColor={'#555'}
                     />
@@ -103,7 +104,6 @@ export function Main() {
           )}
         </Section>
       </div>
-      )
     </>
   )
 }

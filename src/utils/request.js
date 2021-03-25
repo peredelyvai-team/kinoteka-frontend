@@ -40,6 +40,10 @@ service.interceptors.request.use(
       Accept: 'application/json',
     }
 
+    if (process.env.REACT_APP_DEPLOY_API_PATH) {
+      config.url = process.env.REACT_APP_DEPLOY_API_PATH + config.url
+    }
+
     const token = localStorage.getItem('access_token')
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`
