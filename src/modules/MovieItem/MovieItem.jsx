@@ -65,7 +65,7 @@ export const MovieItem = props => {
   const removeFavoriteHandler = async () => {
     const response = await removeFavorite(movie.id)
     if (response.status === 200 && response.data === 'OK') {
-      setViewed(false)
+      setFavorite(false)
     }
   }
 

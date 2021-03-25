@@ -18,18 +18,20 @@ export const Card = props => {
       <div className={cn(styles.cardWrapper)}>
         <img src={image} alt='poster' className={styles.cardPoster} />
         <Rating rating={rating} size='xs' className={styles.cardRating} />
-        {isAuth &&
-          (isViewed ? (
-            <BsEyeFill className={styles.iconView} />
-          ) : (
-            <BsEye className={styles.iconView} />
-          ))(
-            isFavorite ? (
+        {isAuth ? (
+          <>
+            {isViewed ? (
+              <BsEyeFill className={styles.iconView} />
+            ) : (
+              <BsEye className={styles.iconView} />
+            )}
+            {isFavorite ? (
               <MdFavorite className={styles.iconFavorite} />
             ) : (
               <MdFavoriteBorder className={styles.iconFavorite} />
-            )
-          )}
+            )}
+          </>
+        ) : null}
         <span className={styles.cardTitle}>{title}</span>
       </div>
     </Link>
