@@ -56,3 +56,21 @@ export const removeFavorite = async id => {
   })
   return response
 }
+
+export const getViewed = async id => {
+  const { userId } = jwt_decode(localStorage.getItem('access_token'))
+  const response = await request({
+    url: `/users/${userId}/films/viewed`,
+    method: 'get',
+  })
+  return response
+}
+
+export const getFavorites = async id => {
+  const { userId } = jwt_decode(localStorage.getItem('access_token'))
+  const response = await request({
+    url: `/users/${userId}/films/to_watch`,
+    method: 'get',
+  })
+  return response
+}

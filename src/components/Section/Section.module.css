@@ -5,7 +5,15 @@
   padding: 0.8rem;
 }
 
-.sectionTitle {
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
   margin-top: 1rem;
   font-size: 1.3rem;
   font-weight: 900;
