@@ -4,3 +4,8 @@ export const setTokens = (accesssToken, refreshToken) => {
     window.localStorage.setItem('refresh_token', refreshToken)
   }
 }
+
+export function resetTokens() {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('refresh_token')
+}

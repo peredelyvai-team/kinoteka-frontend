@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import cn from 'classnames'
 import { Route } from 'react-router-dom'
 import { useAction } from './hooks'
-import { Auth, Main, MovieItem } from './modules'
+import { Account, Auth, Main, MovieItem } from './modules'
 import { NavBar, AuthRoute, PrivateRoute } from './components'
 import './bootstrap.min.css'
 
@@ -29,7 +29,7 @@ function App() {
         <Auth />
       </AuthRoute>
       <PrivateRoute path='/account'>
-        <>Account Component</>
+        <Account />
       </PrivateRoute>
       <Route path={'/item/:id'} component={MovieItem} />
     </div>
