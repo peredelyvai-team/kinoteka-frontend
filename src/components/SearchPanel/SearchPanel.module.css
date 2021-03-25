@@ -1,4 +1,6 @@
 .searchPanel {
+  margin: 1rem 0;
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -11,23 +13,14 @@
   outline: none;
   padding: 0;
   border: 0;
-  border-radius: 0;
-  height: calc(1.5em + 0.75rem + 2px);
-  width: 0;
-  transition: all 0.5s ease;
+  border-radius: 15px 0 0 15px;
+  height: 2rem;
+  width: 100%;
+  padding: 0 1.5rem;
 }
 
 .checkWrapper {
-  position: relative;
-  margin: 0;
-}
-
-.searchInput:focus {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  width: 40rem;
-  margin-left: 0.8rem;
-  margin-right: 0.8rem;
+  all: unset;
 }
 
 .searchIcon {
@@ -37,8 +30,37 @@
   cursor: pointer;
   margin: 0;
   transition: all 0.25s ease;
+  margin-left: 0.5rem;
 }
 
 .searchIcon:hover {
   transform: scale(1.1);
+}
+
+.error {
+  animation-name: shakeX;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shakeX {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(5px, 0, 0);
+  }
 }

@@ -68,6 +68,9 @@ export function Main() {
                     isViewed={movie.viewed}
                     isFavorite={movie.to_watched}
                     id={movie.id}
+                    style={{
+                      marginBottom: '1rem',
+                    }}
                   />
                 ))}
             </>

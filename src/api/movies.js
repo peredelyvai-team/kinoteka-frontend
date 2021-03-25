@@ -56,3 +56,16 @@ export const removeFavorite = async id => {
   })
   return response
 }
+
+
+export const fetchMoviesByWord = async (page, word) => {
+  const response = await request({
+    url: `/films/search`,
+    method: 'post',
+    data: {
+      "keyword": word,
+      "page": page
+    }
+  })
+  return response
+}
