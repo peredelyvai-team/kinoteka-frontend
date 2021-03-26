@@ -54,6 +54,7 @@ export function Main() {
       fetchRecommend()
     }
     return () => setLoadingPopular(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

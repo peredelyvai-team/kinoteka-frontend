@@ -57,15 +57,14 @@ export const removeFavorite = async id => {
   return response
 }
 
-
 export const fetchMoviesByWord = async (page, word) => {
   const response = await request({
     url: `/films/search`,
     method: 'post',
     data: {
-      "keyword": word,
-      "page": page
-    }
+      keyword: word,
+      page: page,
+    },
   })
   return response
 }
@@ -86,7 +85,6 @@ export const getFavorites = async () => {
   })
   return response
 }
-
 
 export const getRecommended = async () => {
   const token = localStorage.getItem('access_token')

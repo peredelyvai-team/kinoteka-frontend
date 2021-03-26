@@ -21,7 +21,6 @@ export const Viewed = () => {
   }
 
   const getMovies = async page => {
-    let currentPage = page || 1
     setLoading(true)
     const response = await getViewed()
     if (response.status === 200) {

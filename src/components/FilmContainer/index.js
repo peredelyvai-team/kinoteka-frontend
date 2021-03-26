@@ -1,1 +1,1 @@
-export * from './FilmContainer';
+export * from './FilmContainer'

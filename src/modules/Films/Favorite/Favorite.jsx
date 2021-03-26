@@ -21,7 +21,6 @@ export const Favorite = () => {
   }
 
   const getMovies = async page => {
-    let currentPage = page || 1
     setLoading(true)
     const response = await getFavorites()
     if (response.status === 200) {

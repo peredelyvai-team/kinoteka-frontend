@@ -7,7 +7,6 @@ import { Films, Top, Viewed, Favorite } from './modules/Films'
 import { NavBar, AuthRoute, PrivateRoute } from './components'
 import './bootstrap.min.css'
 
-
 function App() {
   const [loading, setLoading] = useState(true)
   const { setAuth } = useAction()

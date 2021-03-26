@@ -1,5 +1,4 @@
 import React from 'react'
-import cn from 'classnames'
 import { Card } from '../index'
 import styles from './FilmContainer.module.css'
 
