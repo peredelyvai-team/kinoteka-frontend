@@ -47,7 +47,7 @@ export function Account() {
       <h1>Добро пожаловать, {login}!</h1>
       <Section
         title='Просмотренные'
-        action={<NavLink to='/viewed'>Просмотреть все</NavLink>}
+        action={<NavLink to='/watch'>Просмотреть все</NavLink>}
       >
         {isViewedError ? (
           <SectionError callback={fetchViewed} />
@@ -77,7 +77,7 @@ export function Account() {
       </Section>
       <Section
         title='Избранные'
-        action={<NavLink to='/liked'>Просмотреть все</NavLink>}
+        action={<NavLink to='/favorite'>Просмотреть все</NavLink>}
       >
         {isFavoritesError ? (
           <SectionError callback={fetchFavorites} />

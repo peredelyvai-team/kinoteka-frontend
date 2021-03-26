@@ -66,21 +66,14 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-<<<<<<< HEAD
-@media screen and (max-width: 576px) {
-=======
 @media (max-width: 768px) {
->>>>>>> c7826be67e5a9f0a2c7b2b1d1f01cdfc03770d35
   .navList {
     width: 70%;
   }
 }
-<<<<<<< HEAD
-=======
 
 @media (max-width: 425px) {
   .navLink {
     width: 25%;
   }
 }
->>>>>>> c7826be67e5a9f0a2c7b2b1d1f01cdfc03770d35

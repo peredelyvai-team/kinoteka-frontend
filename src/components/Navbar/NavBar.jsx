@@ -35,7 +35,7 @@ export function NavBar() {
             className={styles.navLink}
             activeClassName={styles.navLinkActive}
           >
-            Top-150
+            Top-250
           </NavLink>
           {!isAuth && (
             <NavLink

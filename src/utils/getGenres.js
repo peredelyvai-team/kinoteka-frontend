@@ -40,5 +40,5 @@ export const getRating = rating => {
       rating <= 10 ? rating * 10 : rating.slice(0, rating.indexOf('%'))
     return percentRating
   }
-  return 0
+  return rating === 0 ? 0 : null
 }
