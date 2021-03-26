@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import cn from 'classnames'
 import { Route } from 'react-router-dom'
 import { useAction } from './hooks'
-import { Auth, Main, MovieItem } from './modules'
+import { Account, Auth, Main, MovieItem } from './modules'
+import { Films, Top, Viewed, Favorite } from './modules/Films'
 import { NavBar, AuthRoute, PrivateRoute } from './components'
 import './bootstrap.min.css'
 
@@ -12,6 +13,7 @@ function App() {
   useEffect(() => {
     setAuth()
     setLoading(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (loading) {
@@ -28,9 +30,13 @@ function App() {
         <Auth />
       </AuthRoute>
       <PrivateRoute path='/account'>
-        <>Account Component</>
+        <Account />
       </PrivateRoute>
       <Route path={'/item/:id'} component={MovieItem} />
+      <Route path={'/films'} component={Films} />
+      <Route path={'/top'} component={Top} />
+      <Route path={'/favorite'} component={Favorite} />
+      <Route path={'/watch'} component={Viewed} />
     </div>
   )
 }

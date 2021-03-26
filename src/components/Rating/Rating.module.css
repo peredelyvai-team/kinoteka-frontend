@@ -1,0 +1,52 @@
+.xs,
+.xm,
+.xl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: var(--primary);
+  backdrop-filter: blur(3px);
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  color: var(--light);
+  cursor: default;
+}
+
+.xs {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  position: absolute;
+  top: 1%;
+  left: 70%;
+}
+
+.xm {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.xl {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.4rem;
+}
+
+.green {
+  background-color: rgba(32, 201, 150, 0.5);
+  border: 0.15rem solid rgb(32, 201, 150);
+}
+
+.yellow {
+  background-color: rgba(255, 193, 7, 0.5);
+  border: 0.15rem solid rgb(255, 193, 7);
+}
+
+.red {
+  background-color: rgba(220, 53, 69, 0.5);
+  border: 0.15rem solid rgb(220, 53, 69);
+}

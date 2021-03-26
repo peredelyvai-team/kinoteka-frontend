@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { refresh } from '../api/app'
-import { setTokens } from '../utils/setTokens'
+import { setTokens } from '../utils/auth'
 
 let requestQueue = []
 let lastRequest = {}
@@ -38,6 +38,10 @@ service.interceptors.request.use(
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       Accept: 'application/json',
+    }
+
+    if (process.env.REACT_APP_DEPLOY_API_PATH) {
+      config.url = process.env.REACT_APP_DEPLOY_API_PATH + config.url
     }
 
     const token = localStorage.getItem('access_token')
