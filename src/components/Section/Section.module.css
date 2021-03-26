@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  padding: 0.8rem;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+}
