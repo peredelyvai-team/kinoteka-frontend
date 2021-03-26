@@ -19,23 +19,23 @@ export function NavBar() {
   return (
     <nav className={cn('navbar', 'navbar-expand-lg', styles.navBar)}>
       <div className={cn('container', styles.navBarContainer)}>
-        <NavLink to='/' className={styles.navLink}>
+        <NavLink to='/' className={cn(styles.navLink, styles.shrink)}>
           <img className={styles.navbarLogo} src={logo} alt='logo' />
         </NavLink>
         <div className={styles.navList}>
           <NavLink
-            to='/films'
+            to={{ pathname: '/films' }}
             className={styles.navLink}
             activeClassName={styles.navLinkActive}
           >
             Фильмы
           </NavLink>
           <NavLink
-            to='/top'
+            to={{ pathname: '/top' }}
             className={styles.navLink}
             activeClassName={styles.navLinkActive}
           >
-            Top-150
+            Top-250
           </NavLink>
           {!isAuth && (
             <NavLink

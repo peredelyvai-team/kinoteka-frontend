@@ -4,6 +4,7 @@
   border-radius: 5%;
   padding: 0.1rem;
 }
+
 .navBar {
   max-height: 7rem;
   height: 4rem;
@@ -47,6 +48,11 @@
   color: var(--light);
   text-decoration: none;
   opacity: 0.8;
+}
+
+.shrink {
+  width: fit-content;
+  margin-left: 0.5rem;
 }
 
 .navLinkActive::after {

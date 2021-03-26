@@ -41,8 +41,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: Neucha, -apple-system, system-ui, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-sans-serif: Neucha, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
   font-size: calc(14px + (24 - 16) * ((100vw - 300px) / (2800 - 300)));
@@ -9907,4 +9907,45 @@ pre {
 }
 .img-thumbnail {
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+}
+
+.rc-pagination-item-active {
+  background-color: #000;
+  color: rgb(255, 253, 253);
+  transform: scale(1.1);
+  box-shadow: 0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.3);
+}
+
+.rc-pagination-item,
+.rc-pagination-jump-next,
+.rc-pagination-jump-prev {
+  text-decoration: none;
+  height: 2rem;
+  width: 2rem;
+}
+
+.rc-pagination-item:focus,
+.rc-pagination-jump-next:focus,
+.rc-pagination-jump-prev:focus {
+  outline: unset;
+}
+.rc-pagination-item a,
+.rc-pagination-jump-next span,
+.rc-pagination-jump-prev span {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+  border: 0.12rem solid #000;
+  transition: all 0.1s ease;
+  color: #000;
+}
+
+.rc-pagination-jump-next span,
+.rc-pagination-jump-prev span {
+  font-size: 1.5rem;
 }
